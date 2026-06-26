@@ -23,72 +23,76 @@ export const RESOURCE_ORDER = ['ore', 'oil', 'metal', 'power', 'research'];
 export const WAREHOUSE = { baseCap: 10000, incBase: 1000, incGrowth: 1.1393 };
 
 // ---------- 建筑 ----------
-// 统一 costGrowth=1.18；基地的单资源成本最高（满级花费对齐仓库容量的 90%）。
 export const BUILDINGS = [
   {
     id: 'base', name: '基地',
     desc: '营地核心，供应电力并提升各资源基础存储上限。',
     produces: { power: 1.1 },
+    prodGrowth: 1.004,
     storage: { ore: 1000, oil: 800, metal: 600, power: 300, research: 200 },
-    baseCost: { ore: 120, oil: 90, metal: 60, power: 200, research: 35 }, costGrowth: 1.18,
-    buildTime: 20, timeGrowth: 3.0,
+    baseCost: { ore: 120, oil: 90, metal: 60, power: 200, research: 35 }, costGrowth: 1.15,
+    buildTime: 20, timeGrowth: 1.1091, // 总1~100级合计60天
   },
   {
     id: 'warehouse', name: '仓库',
-    desc: '不产出资源，仅大幅提升所有资源存储上限。初始 1 万，每级递增（满级约 29 亿）。',
+    desc: '不产出资源，仅大幅提升所有资源存储上限。初始 1 万，每级递增。',
     isWarehouse: true,
-    baseCost: { ore: 180, oil: 35, metal: 120, power: 90, research: 60 }, costGrowth: 1.18,
-    buildTime: 18, timeGrowth: 2.4,
+    baseCost: { ore: 180, oil: 35, metal: 120, power: 90, research: 60 }, costGrowth: 1.15,
+    buildTime: 18, timeGrowth: 1.1076, // 总48天
   },
   {
     id: 'oreMine', name: '矿石场',
     desc: '开采矿脉，产出最基础的建造原料。',
     produces: { ore: 0.85 },
-    baseCost: { ore: 60, oil: 35, metal: 180, power: 120, research: 90 }, costGrowth: 1.18,
-    buildTime: 8, timeGrowth: 2.4,
+    prodGrowth: 1.004,
+    baseCost: { ore: 60, oil: 35, metal: 180, power: 120, research: 90 }, costGrowth: 1.15,
+    buildTime: 8, timeGrowth: 1.1148, // 总45天
   },
   {
     id: 'oilField', name: '石油场',
     desc: '抽取原油，为战车与战机提供燃料。',
     produces: { oil: 0.85 },
-    baseCost: { ore: 90, oil: 180, metal: 60, power: 35, research: 120 }, costGrowth: 1.18,
-    buildTime: 10, timeGrowth: 2.5,
+    prodGrowth: 1.004,
+    baseCost: { ore: 90, oil: 180, metal: 60, power: 35, research: 120 }, costGrowth: 1.15,
+    buildTime: 10, timeGrowth: 1.1122, // 总45天
   },
   {
     id: 'smelter', name: '冶炼厂',
     desc: '将矿石冶炼为金属——高级建筑与重型单位的关键材料。',
     produces: { metal: 0.85 },
-    baseCost: { ore: 120, oil: 90, metal: 60, power: 35, research: 180 }, costGrowth: 1.18,
-    buildTime: 14, timeGrowth: 2.5,
+    prodGrowth: 1.004,
+    baseCost: { ore: 120, oil: 90, metal: 60, power: 35, research: 180 }, costGrowth: 1.15,
+    buildTime: 14, timeGrowth: 1.1097, // 总45天
   },
   {
     id: 'lab', name: '科研实验室',
     desc: '产出科研点（用于兵种进阶），每级再为全军提供 +5% 攻击。',
     produces: { research: 0.85 },
+    prodGrowth: 1.004,
     armyAtkPerLevel: 0.05,
-    baseCost: { ore: 35, oil: 120, metal: 90, power: 60, research: 180 }, costGrowth: 1.18,
-    buildTime: 25, timeGrowth: 2.7,
+    baseCost: { ore: 35, oil: 120, metal: 90, power: 60, research: 180 }, costGrowth: 1.15,
+    buildTime: 25, timeGrowth: 1.1049, // 总50天
   },
   {
     id: 'barracks', name: '兵营',
     desc: '训练步兵系兵种。每升 10 级解锁更强的一档，升级亦加快训练速度。',
     trainsFamily: 'infantry',
-    baseCost: { ore: 180, oil: 60, metal: 35, power: 120, research: 90 }, costGrowth: 1.18,
-    buildTime: 15, timeGrowth: 2.5,
+    baseCost: { ore: 180, oil: 60, metal: 35, power: 120, research: 90 }, costGrowth: 1.15,
+    buildTime: 15, timeGrowth: 1.1042, // 总40天
   },
   {
     id: 'vehicleFactory', name: '战车工厂',
     desc: '生产装甲载具。每升 10 级解锁更强的一档，升级亦加快生产速度。',
     trainsFamily: 'tank',
-    baseCost: { ore: 90, oil: 60, metal: 180, power: 35, research: 120 }, costGrowth: 1.18,
-    buildTime: 30, timeGrowth: 2.7,
+    baseCost: { ore: 90, oil: 60, metal: 180, power: 35, research: 120 }, costGrowth: 1.15,
+    buildTime: 30, timeGrowth: 1.1038, // 总55天
   },
   {
     id: 'airfield', name: '飞机场',
     desc: '出动空中力量。每升 10 级解锁更强的一档，升级亦加快出动速度。',
     trainsFamily: 'aircraft',
-    baseCost: { ore: 120, oil: 180, metal: 90, power: 60, research: 35 }, costGrowth: 1.18,
-    buildTime: 45, timeGrowth: 2.9,
+    baseCost: { ore: 120, oil: 180, metal: 90, power: 60, research: 35 }, costGrowth: 1.15,
+    buildTime: 45, timeGrowth: 1.1023, // 总55天
   },
 ];
 
