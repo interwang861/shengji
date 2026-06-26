@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e1620" />
+  <title>钢铁前线 · 指挥部</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2 L21 6 V12 C21 17 17 21 12 22 C7 21 3 17 3 12 V6 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 12 l2 2 l4 -5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div class="brand__text">
+          <h1 class="brand__title">钢铁前线</h1>
+          <p class="brand__sub">采集 · 练兵 · 出征打野怪</p>
+        </div>
+      </div>
+      <div class="topbar__actions">
+        <button class="ghost-btn" id="sound-btn" type="button">🔊 音效</button>
+        <button class="ghost-btn" id="reset-btn" type="button">重置</button>
+      </div>
+    </header>
+
+    <section class="resource-bar" id="resource-bar" aria-label="资源"></section>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab is-active" data-tab="buildings" type="button">基地</button>
+      <button class="tab" data-tab="army" type="button">军队</button>
+      <button class="tab" data-tab="campaign" type="button">征战</button>
+    </nav>
+
+    <main class="content">
+      <section class="panel is-active" id="panel-buildings">
+        <div class="section-head"><h2>设施</h2><p>建造与升级设施，让营地自动产出资源。</p></div>
+        <div class="building-grid" id="building-grid"></div>
+      </section>
+
+      <section class="panel" id="panel-army">
+        <div class="section-head"><h2>军队</h2><p>在已建成的军事设施训练兵种，消耗科研可升级兵种属性。</p></div>
+        <div class="army-summary" id="army-summary"></div>
+        <div class="unit-grid" id="unit-grid"></div>
+      </section>
+
+      <section class="panel" id="panel-campaign">
+        <div class="section-head"><h2>征战 · 野怪据点</h2><p>派出军队扫荡野怪。胜利可获战利品并解锁下一据点，但战斗会损耗兵力。</p></div>
+        <div class="army-summary" id="campaign-army"></div>
+        <div class="stage-grid" id="stage-grid"></div>
+        <div class="stage-pager" id="stage-pager"></div>
+      </section>
+    </main>
+
+    <footer class="footnote">进度保存在本浏览器中 · 单机 PvE，无需联网。</footer>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <div class="modal-backdrop" id="battle-modal" hidden></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
