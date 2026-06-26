@@ -27,7 +27,7 @@ export const BUILDINGS = [
   {
     id: 'base', name: '基地',
     desc: '营地核心，供应电力并提升各资源基础存储上限。',
-    produces: { power: 1.1 },
+    produces: { power: 0.275 },
     prodGrowth: 1.004,
     storage: { ore: 1000, oil: 800, metal: 600, power: 300, research: 200 },
     baseCost: { ore: 120, oil: 90, metal: 60, power: 200, research: 35 }, costGrowth: 1.15,
@@ -43,7 +43,7 @@ export const BUILDINGS = [
   {
     id: 'oreMine', name: '矿石场',
     desc: '开采矿脉，产出最基础的建造原料。',
-    produces: { ore: 0.85 },
+    produces: { ore: 0.215 },
     prodGrowth: 1.004,
     baseCost: { ore: 60, oil: 35, metal: 180, power: 120, research: 90 }, costGrowth: 1.15,
     buildTime: 8, timeGrowth: 1.1148, // 总45天
@@ -51,7 +51,7 @@ export const BUILDINGS = [
   {
     id: 'oilField', name: '石油场',
     desc: '抽取原油，为战车与战机提供燃料。',
-    produces: { oil: 0.85 },
+    produces: { oil: 0.215 },
     prodGrowth: 1.004,
     baseCost: { ore: 90, oil: 180, metal: 60, power: 35, research: 120 }, costGrowth: 1.15,
     buildTime: 10, timeGrowth: 1.1122, // 总45天
@@ -59,7 +59,7 @@ export const BUILDINGS = [
   {
     id: 'smelter', name: '冶炼厂',
     desc: '将矿石冶炼为金属——高级建筑与重型单位的关键材料。',
-    produces: { metal: 0.85 },
+    produces: { metal: 0.215 },
     prodGrowth: 1.004,
     baseCost: { ore: 120, oil: 90, metal: 60, power: 35, research: 180 }, costGrowth: 1.15,
     buildTime: 14, timeGrowth: 1.1097, // 总45天
@@ -67,7 +67,7 @@ export const BUILDINGS = [
   {
     id: 'lab', name: '科研实验室',
     desc: '产出科研点（用于兵种进阶），每级再为全军提供 +5% 攻击。',
-    produces: { research: 0.85 },
+    produces: { research: 0.18 },
     prodGrowth: 1.004,
     armyAtkPerLevel: 0.05,
     baseCost: { ore: 35, oil: 120, metal: 90, power: 60, research: 180 }, costGrowth: 1.15,
